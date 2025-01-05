@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 15:07:31 by jcheron           #+#    #+#             */
-/*   Updated: 2024/12/30 17:33:40 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/05 17:10:44 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ static void	validate_character(char c, int *counts, t_data *data)
 		cleanup(data);
 		error_exit("Invalid character in map");
 	}
+	data->to_collect = counts[1];
+	init_player_position(data);
 }
 
 static void	validate_edges(char c, int is_edge, t_data *data)

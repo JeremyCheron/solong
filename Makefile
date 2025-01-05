@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+         #
+#    By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 11:19:08 by jcheron           #+#    #+#              #
-#    Updated: 2024/12/30 17:15:02 by jcheron          ###   ########.fr        #
+#    Updated: 2025/01/05 16:48:06 by onkeltag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,14 @@ LIBFT				:=		libft/libft.a
 MLX_PATH			:=		minilibx-linux/
 MLX					:=		minilibx-linux/libmlx.a
 
-SRCS				=		src/so_long.c				\
-							src/utils/hooks.c			\
-							src/utils/cleanup.c			\
-							src/utils/read_map.c		\
-							src/errors/exit_error.c		\
-							src/map_utils/draw_map.c	\
-							src/validations/validate_map.c
+SRCS				=		src/so_long.c					\
+							src/utils/hooks.c				\
+							src/utils/cleanup.c				\
+							src/utils/read_map.c			\
+							src/errors/exit_error.c			\
+							src/map_utils/draw_map.c		\
+							src/validations/validate_map.c	\
+							src/player_utils/player_position.c
 
 OBJS				:=		$(SRCS:.c=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 13:37:25 by jcheron           #+#    #+#             */
-/*   Updated: 2024/12/30 17:30:08 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/05 16:57:03 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int ac, char **av)
 	init_null(&data);
 	data.map = read_map(av[1], &data.map_width, &data.map_height);
 	validate_map(&data);
+	ft_printf("Player position, x : %d, y: %d", data.player_x, data.player_y);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 	{

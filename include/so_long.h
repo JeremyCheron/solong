@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 13:41:24 by jcheron           #+#    #+#             */
-/*   Updated: 2024/12/30 17:28:11 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/05 17:09:59 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ typedef struct s_data
 	int		map_height;
 	int		img_width;
 	int		img_height;
+	int		player_x;
+	int		player_y;
+	int		to_collect;
 }	t_data;
 
 void	cleanup(t_data *data);
@@ -51,5 +54,7 @@ void	draw_map(t_data *data);
 void	validate_map(t_data *data);
 void	initialize_graphics(t_data *data);
 void	free_map(char **map, int height);
+void	init_player_position(t_data *data);
+int		move_player(t_data *data, int dx, int dy);
 
 #endif
