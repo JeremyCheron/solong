@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 13:59:27 by jcheron           #+#    #+#             */
-/*   Updated: 2024/12/30 17:17:29 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/05 22:12:36 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,15 @@ char	*trim_newline(char *line)
 	return (trimmed);
 }
 
-void	check_width(int *width, int current_width)
+void	check_width(int *width, int current_width, char **map, int height)
 {
 	if (*width == 0)
 		*width = current_width;
 	else if (*width != current_width)
+	{
+		free_map(map, height);
 		error_exit("Map is not rectangular");
+	}
 }
 
 char	**realloc_map(char **map, int new_height)
@@ -42,7 +45,11 @@ char	**realloc_map(char **map, int new_height)
 
 	new_map = malloc(sizeof(char *) * new_height);
 	if (!new_map)
+	{
+		if (map)
+			free_map(map, new_height - 1);
 		error_exit("Memory allocation failed");
+	}
 	i = 0;
 	while (i < new_height - 1)
 	{
@@ -68,12 +75,19 @@ char	**read_map(const char *filename, int *width, int *height)
 	while (line)
 	{
 		line = trim_newline(line);
-		check_width(width, ft_strlen(line));
+		check_width(width, ft_strlen(line), map, *height);
 		map = realloc_map(map, *height + 1);
+		if (!map)
+		{
+			free(line);
+			error_exit("Memory allocation failed");
+		}
 		map[*height] = line;
 		(*height)++;
 		line = get_next_line(fd);
 	}
+	if (line)
+		free(line);
 	close(fd);
 	return (map);
 }

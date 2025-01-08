@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 13:47:27 by jcheron           #+#    #+#             */
-/*   Updated: 2024/12/30 17:15:52 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/05 22:09:46 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	free_map(char **map, int height)
 {
 	int	i;
 
+	if (!map)
+		return ;
 	i = 0;
 	while (i < height)
 	{
@@ -25,9 +27,23 @@ void	free_map(char **map, int height)
 	free(map);
 }
 
+void	cleanup_lines(char **map, int height)
+{
+	int	i;
+
+	i = 0;
+	while (i < height)
+	{
+		if (map[i])
+			free(map[i]);
+		i++;
+	}
+}
+
 void	cleanup(t_data *data)
 {
 	free_map(data->map, data->map_height);
+	data->map = NULL;
 	if (data->img_wall)
 		mlx_destroy_image(data->mlx, data->img_wall);
 	if (data->img_collectible)
@@ -44,6 +60,7 @@ void	cleanup(t_data *data)
 	{
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);
+		data->mlx = NULL;
 	}
 }
 

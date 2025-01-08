@@ -6,7 +6,7 @@
 /*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 13:41:24 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/05 17:09:59 by onkeltag         ###   ########.fr       */
+/*   Updated: 2025/01/05 22:10:44 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_data
 	int		player_x;
 	int		player_y;
 	int		to_collect;
+	int		moves;
 }	t_data;
 
 void	cleanup(t_data *data);
@@ -55,6 +56,7 @@ void	validate_map(t_data *data);
 void	initialize_graphics(t_data *data);
 void	free_map(char **map, int height);
 void	init_player_position(t_data *data);
-int		move_player(t_data *data, int dx, int dy);
+void	move_player(t_data *data, int dx, int dy);
+void	cleanup_lines(char **map, int height);
 
 #endif
