@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 13:52:33 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/05 17:07:06 by onkeltag         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:44:12 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	key_hook(int keycode, t_data *data)
 	else if (keycode == 115 || keycode == 65364)
 		move_player(data, 0, 1);
 	else if (keycode == 100 || keycode == 65363)
-		move_player(data, 1 ,0);
+		move_player(data, 1,0);
 	draw_map(data);
 	return (0);
 }

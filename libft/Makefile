@@ -6,7 +6,7 @@
 #    By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 11:26:43 by jcheron           #+#    #+#              #
-#    Updated: 2024/12/29 15:40:30 by jcheron          ###   ########.fr        #
+#    Updated: 2025/01/21 15:48:35 by jcheron          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ FILES					:=									\
 					$(LIBFT_PATH)ft_mem/ft_bzero.c			\
 					$(LIBFT_PATH)ft_mem/ft_calloc.c			\
 					$(LIBFT_PATH)ft_mem/ft_memchr.c			\
+					$(LIBFT_PATH)ft_mem/ft_memcpy.c			\
 					$(LIBFT_PATH)ft_mem/ft_memcmp.c			\
 					$(LIBFT_PATH)ft_mem/ft_memmove.c		\
 					$(LIBFT_PATH)ft_mem/ft_memset.c			\

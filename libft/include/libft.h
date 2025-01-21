@@ -6,7 +6,7 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 08:06:36 by jcheron           #+#    #+#             */
-/*   Updated: 2024/12/29 15:40:16 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/21 15:44:53 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+# define FD_LIMIT 1024
 
 typedef struct s_list
 {
