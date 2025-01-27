@@ -6,7 +6,7 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 13:59:27 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/27 10:57:08 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/27 16:13:45 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ char	**read_map(const char *filename, int *width, int *height)
 		free_map(map.map, map.height);
 		error_exit(EMPTY_MAP);
 	}
-	validate_access(map.map, map.width, map.height);
 	*width = map.width;
 	*height = map.height;
 	return (map.map);

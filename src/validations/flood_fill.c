@@ -6,7 +6,7 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 08:35:52 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/27 11:52:04 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/27 13:12:54 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	flood_fill(
 	if (map[y][x] != COLLECTIBLE && map[y][x] != EXIT
 		&& map[y][x] != PLAYER && map[y][x] != FREESPACE)
 		return ;
-	map[y][x] = 'V';
+	map[y][x] = VISITED;
 	flood_fill(map, x + 1, y);
 	flood_fill(map, x - 1, y);
 	flood_fill(map, x, y + 1);
@@ -101,9 +101,9 @@ static void	validate_map_elements(
 		x = 0;
 		while (x < width)
 		{
-			if (map[y][x] == COLLECTIBLE && copy[y][x] != 'V')
+			if (map[y][x] == COLLECTIBLE && copy[y][x] != VISITED)
 				fill_error_exit(map, copy, height, COL_NOT_REACHABLE);
-			if (map[y][x] == EXIT && copy[y][x] != 'V')
+			if (map[y][x] == EXIT && copy[y][x] != VISITED)
 				fill_error_exit(map, copy, height, EXIT_NOT_REACHABLE);
 			x++;
 		}
