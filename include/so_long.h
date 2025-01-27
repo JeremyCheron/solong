@@ -6,7 +6,7 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 13:41:24 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/27 11:05:16 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/27 12:42:59 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,6 @@
 # define RIGHT 65363
 # define ESC 65307
 
-
-
-
 typedef struct s_data
 {
 	void	*mlx;
@@ -90,7 +87,6 @@ typedef struct s_map_data
 	int		height;
 	char	**map;
 }	t_map_data;
-
 
 void	cleanup(t_data *data);
 int		key_hook(int keycode, t_data *data);
