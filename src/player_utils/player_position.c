@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_position.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:42:14 by onkeltag          #+#    #+#             */
-/*   Updated: 2025/01/05 21:48:36 by onkeltag         ###   ########.fr       */
+/*   Updated: 2025/01/27 09:52:34 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_player_position(t_data *data)
 		x = 0;
 		while (x < data->map_width)
 		{
-			if (data->map[y][x] == 'P')
+			if (data->map[y][x] == PLAYER)
 			{
 				data->player_x = x;
 				data->player_y = y;
@@ -38,9 +38,8 @@ void	init_player_position(t_data *data)
 
 static void	_move_player(t_data *data, int new_x, int new_y)
 {
-
-	data->map[data->player_y][data->player_x] = '0';
-	data->map[new_y][new_x] = 'P';
+	data->map[data->player_y][data->player_x] = FREESPACE;
+	data->map[new_y][new_x] = PLAYER;
 	data->player_y = new_y;
 	data->player_x = new_x;
 }
@@ -53,17 +52,17 @@ void	move_player(t_data *data, int dx, int dy)
 	new_x = data->player_x + dx;
 	new_y = data->player_y + dy;
 	if (new_x < 0 || new_x >= data->map_width || new_y >= data->map_height
-		|| (data->map[new_y][new_x] == 'E' && data->to_collect != 0)
-		|| data->map[new_y][new_x] == '1')
+		|| (data->map[new_y][new_x] == EXIT && data->to_collect != 0)
+		|| data->map[new_y][new_x] == WALL)
 		return ;
-	if (data->map[new_y][new_x] == 'C')
+	if (data->map[new_y][new_x] == COLLECTIBLE)
 	{
-		data->map[new_y][new_x] = '0';
+		data->map[new_y][new_x] = FREESPACE;
 		data->to_collect -= 1;
 	}
 	data->moves += 1;
 	ft_printf("moves : %d\n", data->moves);
-	if (data->map[new_y][new_x] == 'E' && data->to_collect == 0)
+	if (data->map[new_y][new_x] == EXIT && data->to_collect == 0)
 	{
 		ft_printf("WIN with %d moves\n", data->moves);
 		close_window(data);

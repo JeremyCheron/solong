@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 13:37:25 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/05 21:52:38 by onkeltag         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:00:40 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ int	main(int ac, char **av)
 
 	(void)av;
 	if (ac != 2)
-		error_exit("Usage: ./so_long <map_file.ber>\n");
+		error_exit(USAGE);
 	init_null(&data);
 	data.map = read_map(av[1], &data.map_width, &data.map_height);
 	validate_map(&data);
-	ft_printf("Player position, x : %d, y: %d", data.player_x, data.player_y);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 	{
@@ -44,7 +43,7 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	data.win = mlx_new_window(data.mlx, data.map_width * TILE_SIZE,
-			data.map_height * TILE_SIZE, "so_long");
+			data.map_height * TILE_SIZE, TITLE);
 	initialize_graphics(&data);
 	draw_map(&data);
 	mlx_key_hook(data.win, key_hook, &data);

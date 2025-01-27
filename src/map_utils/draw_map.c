@@ -6,7 +6,7 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 15:11:41 by jcheron           #+#    #+#             */
-/*   Updated: 2024/12/30 17:15:30 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/27 09:51:45 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static void	draw_tile(t_data *data, int i, int j)
 	void	*img;
 
 	img = NULL;
-	if (data->map[i][j] == '1')
+	if (data->map[i][j] == WALL)
 		img = data->img_wall;
-	else if (data->map[i][j] == 'C')
+	else if (data->map[i][j] == COLLECTIBLE)
 		img = data->img_collectible;
-	else if (data->map[i][j] == '0')
+	else if (data->map[i][j] == FREESPACE)
 		img = data->img_freespace;
-	else if (data->map[i][j] == 'E')
+	else if (data->map[i][j] == EXIT)
 		img = data->img_exit;
-	else if (data->map[i][j] == 'P')
+	else if (data->map[i][j] == PLAYER)
 		img = data->img_player;
 	if (img)
 		mlx_put_image_to_window(data->mlx,
@@ -64,5 +64,5 @@ void	initialize_graphics(t_data *data)
 			&data->img_width, &data->img_height);
 	if (!data->img_wall || !data->img_collectible || !data->img_freespace
 		|| !data->img_exit || !data->img_player)
-		error_exit("Failed to load images");
+		error_exit(FAIL_LOAD_IMG);
 }

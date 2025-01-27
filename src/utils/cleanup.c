@@ -6,7 +6,7 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 13:47:27 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/20 10:47:29 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/27 09:52:49 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,32 +63,3 @@ void	cleanup(t_data *data)
 		data->mlx = NULL;
 	}
 }
-
-// void	cleanup(t_data *data)
-// {
-// 	void	*imgs[5];
-// 	int		i;
-
-// 	imgs[0] = data->img_wall;
-// 	imgs[1] = data->img_collectible;
-// 	imgs[2] = data->img_freespace;
-// 	imgs[3] = data->img_exit;
-// 	imgs[4] = data->img_player;
-// 	i = 0;
-// 	while (i < 5)
-// 	{
-// 		if (imgs[i])
-// 			mlx_destroy_image(data->mlx, imgs[i]);
-// 		i++;
-// 	}
-// 	if (data->win)
-// 	{
-// 		mlx_destroy_window(data->mlx, data->win);
-// 	}
-// 	if (data->mlx)
-// 	{
-// 		mlx_destroy_display(data->mlx);
-// 		free(data->mlx);
-// 	}
-// 	free_map(data->map, data->map_height);
-// }

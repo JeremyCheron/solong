@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 15:07:31 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/05 17:10:44 by onkeltag         ###   ########.fr       */
+/*   Updated: 2025/01/27 09:59:49 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	validate_character(char c, int *counts, t_data *data)
 	else if (c != '0' && c != '1')
 	{
 		cleanup(data);
-		error_exit("Invalid character in map");
+		error_exit(INVALID_CHAR);
 	}
 	data->to_collect = counts[1];
 	init_player_position(data);
@@ -34,7 +34,7 @@ static void	validate_edges(char c, int is_edge, t_data *data)
 	if (is_edge && c != '1')
 	{
 		cleanup(data);
-		error_exit("Map is not surrounded by walls");
+		error_exit(INVALID_MAP_WALLS);
 	}
 }
 
@@ -63,6 +63,6 @@ void	validate_map(t_data *data)
 	if (counts[0] != 1 || counts[1] < 1 || counts[2] != 1)
 	{
 		cleanup(data);
-		error_exit("Invalid map elements");
+		error_exit(INVALID_MAP_ELEM);
 	}
 }

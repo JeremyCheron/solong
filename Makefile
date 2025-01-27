@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+         #
+#    By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 11:19:08 by jcheron           #+#    #+#              #
-#    Updated: 2025/01/05 16:48:06 by onkeltag         ###   ########.fr        #
+#    Updated: 2025/01/27 10:48:31 by jcheron          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRCS				=		src/so_long.c					\
 							src/utils/read_map.c			\
 							src/errors/exit_error.c			\
 							src/map_utils/draw_map.c		\
+							src/map_utils/map_utils.c		\
 							src/validations/validate_map.c	\
+							src/validations/flood_fill.c	\
 							src/player_utils/player_position.c
 
 OBJS				:=		$(SRCS:.c=.o)
