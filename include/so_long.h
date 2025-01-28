@@ -6,7 +6,7 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 13:41:24 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/27 13:12:32 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/28 07:49:45 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@
 # define FREESPACE '0'
 # define WALL '1'
 # define EXIT 'E'
+# define PLAYER_ON_EXIT 'X'
 # define VISITED 'V'
 # define W 119
 # define UP 65362
@@ -71,6 +72,7 @@ typedef struct s_data
 	void	*img_freespace;
 	void	*img_exit;
 	void	*img_player;
+	void	*img_player_on_exit;
 	char	**map;
 	int		map_width;
 	int		map_height;

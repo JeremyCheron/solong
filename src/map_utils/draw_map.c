@@ -6,7 +6,7 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 15:11:41 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/27 09:51:45 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/28 08:05:23 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static void	draw_tile(t_data *data, int i, int j)
 	else if (data->map[i][j] == EXIT)
 		img = data->img_exit;
 	else if (data->map[i][j] == PLAYER)
+		img = data->img_player;
+	else if (data->map[i][j] == PLAYER_ON_EXIT)
 		img = data->img_player;
 	if (img)
 		mlx_put_image_to_window(data->mlx,

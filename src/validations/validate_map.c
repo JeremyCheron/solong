@@ -6,7 +6,7 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 15:07:31 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/27 16:16:39 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/28 08:10:26 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ void	validate_map(t_data *data)
 	int	i;
 	int	j;
 
-	counts[0] = 0;
-	counts[1] = 0;
-	counts[2] = 0;
+	ft_bzero(counts, sizeof(int) * 3);
 	i = 0;
 	while (i < data->map_height)
 	{

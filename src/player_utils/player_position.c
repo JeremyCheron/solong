@@ -6,7 +6,7 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:42:14 by onkeltag          #+#    #+#             */
-/*   Updated: 2025/01/27 09:52:34 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/01/28 08:02:42 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,14 @@ void	init_player_position(t_data *data)
 
 static void	_move_player(t_data *data, int new_x, int new_y)
 {
-	data->map[data->player_y][data->player_x] = FREESPACE;
-	data->map[new_y][new_x] = PLAYER;
+	if (data->map[data->player_y][data->player_x] == PLAYER_ON_EXIT)
+		data->map[data->player_y][data->player_x] = EXIT;
+	else
+		data->map[data->player_y][data->player_x] = FREESPACE;
+	if (data->map[new_y][new_x] == EXIT)
+		data->map[new_y][new_x] = PLAYER_ON_EXIT;
+	else
+		data->map[new_y][new_x] = PLAYER;
 	data->player_y = new_y;
 	data->player_x = new_x;
 }
@@ -52,7 +58,6 @@ void	move_player(t_data *data, int dx, int dy)
 	new_x = data->player_x + dx;
 	new_y = data->player_y + dy;
 	if (new_x < 0 || new_x >= data->map_width || new_y >= data->map_height
-		|| (data->map[new_y][new_x] == EXIT && data->to_collect != 0)
 		|| data->map[new_y][new_x] == WALL)
 		return ;
 	if (data->map[new_y][new_x] == COLLECTIBLE)
@@ -62,11 +67,14 @@ void	move_player(t_data *data, int dx, int dy)
 	}
 	data->moves += 1;
 	ft_printf("moves : %d\n", data->moves);
-	if (data->map[new_y][new_x] == EXIT && data->to_collect == 0)
+	if (data->map[new_y][new_x] == EXIT)
 	{
-		ft_printf("WIN with %d moves\n", data->moves);
-		close_window(data);
-		exit(EXIT_SUCCESS);
+		if (data->to_collect == 0)
+		{
+			ft_printf("WIN with %d moves\n", data->moves);
+			close_window(data);
+			exit(EXIT_SUCCESS);
+		}
 	}
 	_move_player(data, new_x, new_y);
 }
