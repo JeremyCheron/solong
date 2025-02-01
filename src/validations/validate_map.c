@@ -3,15 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 15:07:31 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/28 08:10:26 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/02/01 15:10:22 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
+/**
+ * @brief Validate the character
+ *
+ * @param c The character to validate
+ * @param counts The counts of the characters
+ * @param data The data structure
+ *
+ * @note Validate the character and update the counts
+ *
+ * @return void
+ */
 static void	validate_character(char c, int *counts, t_data *data)
 {
 	if (c == EXIT)
@@ -29,6 +40,17 @@ static void	validate_character(char c, int *counts, t_data *data)
 	init_player_position(data);
 }
 
+/**
+ * @brief Validate the edges
+ *
+ * @param c The character to validate
+ * @param is_edge The edge flag
+ * @param data The data structure
+ *
+ * @note Validate the edges of the map
+ *
+ * @return void
+ */
 static void	validate_edges(char c, int is_edge, t_data *data)
 {
 	if (is_edge && c != WALL)
@@ -38,6 +60,15 @@ static void	validate_edges(char c, int is_edge, t_data *data)
 	}
 }
 
+/**
+ * @brief Validate the map
+ *
+ * @param data The data structure
+ *
+ * @note Validate the map elements and access to the collectibles and the exit
+ *
+ * @return void
+ */
 void	validate_map(t_data *data)
 {
 	int	counts[3];

@@ -3,15 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 13:47:27 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/27 09:52:49 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/02/01 15:07:56 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
+/**
+ * @brief Free the map
+ *
+ * @param map The map to free
+ * @param height The height of the map
+ *
+ * @note Free the map and set it to NULL
+ *
+ * @return void
+ */
 void	free_map(char **map, int height)
 {
 	int	i;
@@ -27,6 +37,16 @@ void	free_map(char **map, int height)
 	free(map);
 }
 
+/**
+ * @brief Free the lines of the map
+ *
+ * @param map The map to free
+ * @param height The height of the map
+ *
+ * @note Free the lines of the map and set them to NULL
+ *
+ * @return void
+ */
 void	cleanup_lines(char **map, int height)
 {
 	int	i;
@@ -40,6 +60,15 @@ void	cleanup_lines(char **map, int height)
 	}
 }
 
+/**
+ * @brief Free the map and the images
+ *
+ * @param data The data structure
+ *
+ * @note Free the map and the images
+ *
+ * @return void
+ */
 void	cleanup(t_data *data)
 {
 	free_map(data->map, data->map_height);

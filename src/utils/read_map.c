@@ -3,15 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 13:59:27 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/27 16:13:45 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/02/01 15:09:34 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
+/**
+ * @brief Trim the newline character at the end of the line
+ *
+ * @param line The line to trim
+ *
+ * @note Trim the newline character at the end of the line
+ *
+ * @return The trimmed line
+ */
 char	*trim_newline(char *line)
 {
 	char	*trimmed;
@@ -32,6 +41,17 @@ char	*trim_newline(char *line)
 	return (trimmed);
 }
 
+/**
+ * @brief Check the width of the map
+ *
+ * @param map_data The map data
+ * @param current_width The width of the line
+ * @param line The line to check
+ *
+ * @note Check if the width of the line is the same as the previous lines
+ *
+ * @return void
+ */
 void	validate_map_width(
 						int expected_width,
 						int current_width,
@@ -46,6 +66,17 @@ void	validate_map_width(
 	}
 }
 
+/**
+ * @brief Check the width of the map
+ *
+ * @param map_data The map data
+ * @param width The width of the line
+ * @param line The line to check
+ *
+ * @note Check if the width of the line is the same as the previous lines
+ *
+ * @return void
+ */
 void	check_width(
 				t_map_data *map_data,
 				int current_width,
@@ -57,6 +88,16 @@ void	check_width(
 		validate_map_width(map_data->width, current_width, map_data, line);
 }
 
+/**
+ * @brief Reallocate the map
+ *
+ * @param map The map to reallocate
+ * @param new_height The new height of the map
+ *
+ * @note Reallocate the map with a new height
+ *
+ * @return The reallocated map
+ */
 char	**realloc_map(char **map, int new_height)
 {
 	char	**new_map;
@@ -78,6 +119,17 @@ char	**realloc_map(char **map, int new_height)
 	return (new_map);
 }
 
+/**
+ * @brief Read the map from a file
+ *
+ * @param filename The name of the file
+ * @param width The width of the map
+ * @param height The height of the map
+ *
+ * @note Read the map from a file
+ *
+ * @return The map
+ */
 char	**read_map(const char *filename, int *width, int *height)
 {
 	int			fd;

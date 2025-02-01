@@ -3,15 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   player_position.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:42:14 by onkeltag          #+#    #+#             */
-/*   Updated: 2025/01/28 08:02:42 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/02/01 15:07:36 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
+/**
+ * @brief Initialize the player position
+ *
+ * @param data The data structure
+ *
+ * @note Find the player position in the map and initialize the player position
+ *
+ * @return void
+ *
+ * @author jcheron
+ * @date 2025/01/05
+ */
 void	init_player_position(t_data *data)
 {
 	int	x;
@@ -36,6 +48,20 @@ void	init_player_position(t_data *data)
 	}
 }
 
+/**
+ * @brief Move the player on the map
+ *
+ * @param data The data structure
+ * @param dx The movement on the x axis
+ * @param dy The movement on the y axis
+ *
+ * @note Move the player on the map if the movement is possible
+ *
+ * @return void
+ *
+ * @author jcheron
+ * @date 2025/01/05
+ */
 static void	_move_player(t_data *data, int new_x, int new_y)
 {
 	if (data->map[data->player_y][data->player_x] == PLAYER_ON_EXIT)
@@ -50,6 +76,20 @@ static void	_move_player(t_data *data, int new_x, int new_y)
 	data->player_x = new_x;
 }
 
+/**
+ * @brief Move the player on the map
+ *
+ * @param data The data structure
+ * @param dx The movement on the x axis
+ * @param dy The movement on the y axis
+ *
+ * @note Move the player on the map if the movement is possible
+ *
+ * @return void
+ *
+ * @author jcheron
+ * @date 2025/01/05
+ */
 void	move_player(t_data *data, int dx, int dy)
 {
 	int	new_x;

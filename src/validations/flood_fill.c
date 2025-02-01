@@ -3,15 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 08:35:52 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/27 13:12:54 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/02/01 15:09:28 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
+/**
+ * @brief Copy the map
+ *
+ * @param dest The destination map
+ * @param src The source map
+ * @param height The height of the map
+ *
+ * @note Copy the map from the source to the destination
+ *
+ * @return void
+ */
 void	copy_map(
 				char **dest,
 				char **src,
@@ -34,6 +45,17 @@ void	copy_map(
 	dest[i] = NULL;
 }
 
+/**
+ * @brief Flood fill algorithm
+ *
+ * @param map The map
+ * @param x The x coordinate
+ * @param y The y coordinate
+ *
+ * @note Fill the map with the visited cells
+ *
+ * @return void
+ */
 void	flood_fill(
 				char **map,
 				int x,
@@ -52,6 +74,17 @@ void	flood_fill(
 	flood_fill(map, x, y - 1);
 }
 
+/**
+ * @brief Find the player on the map
+ *
+ * @param copy The map copy
+ * @param width The width of the map
+ * @param height The height of the map
+ *
+ * @note Find the player on the map
+ *
+ * @return The coordinates of the player
+ */
 static int	*find_player(
 					char **copy,
 					int width,
@@ -85,6 +118,18 @@ static int	*find_player(
 	return (NULL);
 }
 
+/**
+ * @brief Validate the map elements
+ *
+ * @param map The map
+ * @param copy The map copy
+ * @param width The width of the map
+ * @param height The height of the map
+ *
+ * @note Validate the map elements
+ *
+ * @return void
+ */
 static void	validate_map_elements(
 								char **map,
 								char **copy,
@@ -111,6 +156,17 @@ static void	validate_map_elements(
 	}
 }
 
+/**
+ * @brief Validate the access to the collectibles and the exit
+ *
+ * @param map The map
+ * @param width The width of the map
+ * @param height The height of the map
+ *
+ * @note Validate the access to the collectibles and the exit
+ *
+ * @return void
+ */
 void	validate_access(
 					char **map,
 					int width,

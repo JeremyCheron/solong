@@ -3,15 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 13:52:33 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/27 12:42:29 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/02/01 15:09:32 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
+/**
+ * @brief Close the window
+ *
+ * @param data The data structure
+ *
+ * @note Close the window and exit the program
+ *
+ * @return void
+ */
 int	close_window(t_data *data)
 {
 	cleanup(data);
@@ -19,6 +28,16 @@ int	close_window(t_data *data)
 	return (0);
 }
 
+/**
+ * @brief Handle the key events
+ *
+ * @param keycode The key code
+ * @param data The data structure
+ *
+ * @note Handle the key events
+ *
+ * @return void
+ */
 int	key_hook(int keycode, t_data *data)
 {
 	if (keycode == ESC)

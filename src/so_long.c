@@ -3,15 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 13:37:25 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/28 08:05:30 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/02/01 15:11:04 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+/**
+ * @brief Initialize the data structure to NULL
+ *
+ * @param data The data structure
+ *
+ * @note Initialize the data structure to NULL
+ *
+ * @return void
+ */
 void	init_null(t_data *data)
 {
 	data->mlx = NULL;
@@ -26,6 +35,20 @@ void	init_null(t_data *data)
 	data->img_player = NULL;
 }
 
+/**
+ * @brief Main function
+ *
+ * @param ac The number of arguments
+ * @param av The arguments
+ *
+ * @note The main function
+ *
+ * @note calls the functions to initialize the data structure, read the map,
+ * validate the map, initialize the graphics, draw the map, and handle the
+ * key events and close the window
+ *
+ * @return The exit status
+ */
 int	main(int ac, char **av)
 {
 	t_data	data;

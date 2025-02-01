@@ -3,15 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: onkeltag <onkeltag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 15:11:41 by jcheron           #+#    #+#             */
-/*   Updated: 2025/01/28 08:05:23 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/02/01 15:06:34 by onkeltag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
+/**
+ * @brief Draw a tile on the window
+ *
+ * @param data The data structure
+ * @param i The row of the tile
+ * @param j The column of the tile
+ *
+ * @note Draw the tile at the position (i, j) on the window
+ *
+ * @return void
+ *
+ * @author jcheron
+ * @date 2025/01/28
+ */
 static void	draw_tile(t_data *data, int i, int j)
 {
 	void	*img;
@@ -34,6 +48,18 @@ static void	draw_tile(t_data *data, int i, int j)
 			data->win, img, j * TILE_SIZE, i * TILE_SIZE);
 }
 
+/**
+ * @brief Draw the map on the window
+ *
+ * @param data The data structure
+ *
+ * @note Draw the map on the window
+ *
+ * @return void
+ *
+ * @author jcheron
+ * @date 2025/01/28
+ */
 void	draw_map(t_data *data)
 {
 	int	i;
@@ -52,6 +78,18 @@ void	draw_map(t_data *data)
 	}
 }
 
+/**
+ * @brief Initialize the graphics
+ *
+ * @param data The data structure
+ *
+ * @note Load the images for the tiles
+ *
+ * @return void
+ *
+ * @author jcheron
+ * @date 2025/01/28
+ */
 void	initialize_graphics(t_data *data)
 {
 	data->img_wall = mlx_xpm_file_to_image(data->mlx, "./sprites/wall.xpm",
